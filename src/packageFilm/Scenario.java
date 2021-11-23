@@ -28,6 +28,7 @@ public class Scenario {
 
     /**
      * Méthode qui renvoie des informations sur l'objet courant
+     *
      * @return
      */
     public String scenarioInfo() {
@@ -59,12 +60,15 @@ public class Scenario {
     /**
      * Méthode qui ajoute un film donné sur la liste des films
      * de l'objet courant
+     *
      * @param f
      */
     public void addFilm(Film f) {
         boolean newFilm = true;
         //vérification que le film n'existe pas dans la liste
-        for (MovingPicture film : this.movingPictureList) {
+        MovingPictureIterator iterator = new MovingPictureIterator(movingPictureList);
+
+        /*for (MovingPicture film : this.movingPictureList) {
             if (film.equals(f)) {
                 newFilm = false;
             }
@@ -73,11 +77,25 @@ public class Scenario {
         if (newFilm) {
             this.movingPictureList.add(f);
             f.setScenario(this);
+        }*/
+        while (iterator.hasNext()) {
+            if (iterator.currentItem().equals(f)) {
+                newFilm = false;
+            }
+            System.out.println(iterator.currentItem().startProduction());
+            iterator.next();
         }
+        //ajout du nouveau film
+        if (newFilm) {
+            this.movingPictureList.add(f);
+            f.setScenario(this);
+        }
+
     }
 
     /**
      * Méthode qui supprime un film donné de la liste des films
+     *
      * @param f
      */
     public void removeFilm(MovingPicture f) {
