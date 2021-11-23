@@ -75,7 +75,7 @@ public class FilmTest {
 
     @Test
     public void testFilmInformation() {
-        assertEquals("Moi, l'incroyable by Lina Zerraf", this.film1.filmInformation());
+        assertEquals("Moi, l'incroyable by Lina Zerraf", this.film1.information());
     }
 
     @Test

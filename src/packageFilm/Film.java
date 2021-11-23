@@ -6,47 +6,20 @@ package packageFilm;
  * @author (votre nom)
  * @version (un numéro de version ou une date)
  */
-public class Film {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private String title;
-    private String director;
-    private Scenario scenario;
-
+public class Film extends MovingPicture {
     /**
      * Constructeur d'objets de classe packageFilm.Film
      */
     public Film(String title, String director) {
+        super();
         // initialisation des variables d'instance
         this.title = title;
         this.director = director;
     }
 
-    public String filmInformation() {
-        return this.title + " by " + this.director;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDirector() {
-        return this.director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public Scenario getScenario() {
-        return this.scenario;
-    }
-
-    public void setScenario(Scenario scenario) {
-        this.scenario = scenario;
+    @Override
+    public String information() {
+        return "Film: " + this.title + " by " + this.director;
     }
 
     @Override

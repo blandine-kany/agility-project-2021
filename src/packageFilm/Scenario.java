@@ -14,7 +14,7 @@ import java.util.List;
 public class Scenario {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private String originalTitle;
-    private List<Film> listFilm;
+    private List<MovingPicture> movingPictureList;
 
     /**
      * Constructeur d'objets de classe packageFilm.Scenario
@@ -22,7 +22,7 @@ public class Scenario {
     public Scenario(String title) {
         // initialisation des variables d'instance
         this.originalTitle = title;
-        this.listFilm = new ArrayList<Film>();
+        this.movingPictureList = new ArrayList<MovingPicture>();
     }
 
 
@@ -32,8 +32,8 @@ public class Scenario {
      */
     public String scenarioInfo() {
         String infoOfFilms = "";
-        for (Film f : this.listFilm) {
-            infoOfFilms = infoOfFilms + " " + f.filmInformation();
+        for (MovingPicture movingPicture : this.movingPictureList) {
+            infoOfFilms = infoOfFilms + " " + movingPicture.information();
         }
 
         return this.originalTitle + infoOfFilms;
@@ -47,12 +47,12 @@ public class Scenario {
         this.originalTitle = s;
     }
 
-    public List<Film> getListOfFilms() {
+    public List<MovingPicture> getListOfFilms() {
         return getFilmList();
     }
 
-    private List<Film> getFilmList() {
-        List<Film> list = Collections.unmodifiableList(this.listFilm);
+    private List<MovingPicture> getFilmList() {
+        List<MovingPicture> list = Collections.unmodifiableList(this.movingPictureList);
         return list;
     }
 
@@ -64,14 +64,14 @@ public class Scenario {
     public void addFilm(Film f) {
         boolean newFilm = true;
         //vérification que le film n'existe pas dans la liste
-        for (Film film : this.listFilm) {
+        for (MovingPicture film : this.movingPictureList) {
             if (film.equals(f)) {
                 newFilm = false;
             }
         }
         //ajout du nouveau film
         if (newFilm) {
-            this.listFilm.add(f);
+            this.movingPictureList.add(f);
             f.setScenario(this);
         }
     }
@@ -80,8 +80,8 @@ public class Scenario {
      * Méthode qui supprime un film donné de la liste des films
      * @param f
      */
-    public void removeFilm(Film f) {
-        this.listFilm.remove(f);
+    public void removeFilm(MovingPicture f) {
+        this.movingPictureList.remove(f);
         f.setScenario(null);
     }
 
@@ -89,7 +89,7 @@ public class Scenario {
     public boolean equals(Object obj) {
         if (obj instanceof Scenario) {
             Scenario scenario = (Scenario) obj;
-            return scenario.originalTitle.equals(this.originalTitle) && scenario.listFilm.equals(this.listFilm);
+            return scenario.originalTitle.equals(this.originalTitle) && scenario.movingPictureList.equals(this.movingPictureList);
         }
         return false;
     }
@@ -98,7 +98,7 @@ public class Scenario {
     public int hashCode() {
         int hash = 5;
         hash = 7 * hash + (this.originalTitle != null ? this.originalTitle.hashCode() : 0);
-        hash = 7 * hash + (this.listFilm != null ? this.listFilm.hashCode() : 0);
+        hash = 7 * hash + (this.movingPictureList != null ? this.movingPictureList.hashCode() : 0);
         return hash;
     }
 
