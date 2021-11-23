@@ -23,6 +23,11 @@ public class Film extends MovingPicture {
     }
 
     @Override
+    public String hirePeople() {
+        return "People to hire: Actors, Set Designer, Cameramen, Director, Screen writer, Producer";
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof Film) {
             Film film1 = (Film) obj;

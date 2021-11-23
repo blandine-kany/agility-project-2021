@@ -9,14 +9,29 @@ public abstract class MovingPicture {
     MovingPicture() {
     }
 
-    //Abstract methods
-    public abstract String information();
-    @Override
-    public abstract boolean equals(Object obj) ;
-    @Override
-    public abstract int hashCode() ;
+    /**
+     * Template method
+     **/
+    public final String startProduction() {
+        return this.information() + "\n" + this.hirePeople();
+    }
 
-    //Simple methods
+    /**
+     * Abstract methods
+     **/
+    public abstract String information();
+
+    public abstract String hirePeople();
+
+    @Override
+    public abstract boolean equals(Object obj);
+
+    @Override
+    public abstract int hashCode();
+
+    /**
+     * Simple methods
+     **/
     public String getTitle() {
         return this.title;
     }

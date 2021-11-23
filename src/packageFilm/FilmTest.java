@@ -75,7 +75,7 @@ public class FilmTest {
 
     @Test
     public void testFilmInformation() {
-        assertEquals("Moi, l'incroyable by Lina Zerraf", this.film1.information());
+        assertEquals("Film: Moi, l'incroyable by Lina Zerraf", this.film1.information());
     }
 
     @Test
@@ -98,6 +98,16 @@ public class FilmTest {
     public void testSetDirector() {
         this.film1.setDirector("Beyoncé");
         assertEquals("Beyoncé", this.film1.getDirector());
+    }
+
+    @Test
+    public void testHirePeople() {
+        assertEquals("People to hire: Actors, Set Designer, Cameramen, Director, Screen writer, Producer", this.film1.hirePeople());
+    }
+
+    @Test
+    public void testStartProduction() {
+        assertEquals("Film: Moi, l'incroyable by Lina Zerraf" + "\n" + "People to hire: Actors, Set Designer, Cameramen, Director, Screen writer, Producer", this.film1.startProduction());
     }
 
     @Test
