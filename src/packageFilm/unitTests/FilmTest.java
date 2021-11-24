@@ -1,11 +1,12 @@
-package packageFilm;
+package packageFilm.unitTests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import packageFilm.Film;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * Classe-test FilmTest.
@@ -75,7 +76,7 @@ public class FilmTest {
 
     @Test
     public void testFilmInformation() {
-        assertEquals("Film: Moi, l'incroyable by Lina Zerraf", this.film1.information());
+        assertEquals("Film: Moi, l'incroyable by director Lina Zerraf", this.film1.information());
     }
 
     @Test
@@ -102,35 +103,27 @@ public class FilmTest {
 
     @Test
     public void testHirePeople() {
-        assertEquals("People to hire: Actors, Set Designer, Cameramen, Director, Screen writer, Producer", this.film1.hirePeople());
+        assertEquals("People to hire: Actors, Set Designer, Cameramen, Screen writer, Producer", this.film1.hirePeople());
     }
 
     @Test
     public void testStartProduction() {
-        assertEquals("Film: Moi, l'incroyable by Lina Zerraf" + "\n" + "People to hire: Actors, Set Designer, Cameramen, Director, Screen writer, Producer", this.film1.startProduction());
+        assertEquals("Film: Moi, l'incroyable by director Lina Zerraf" + "\n" + "People to hire: Actors, Set Designer, Cameramen, Screen writer, Producer", this.film1.startProduction());
     }
 
     @Test
     public void testEquals() {
-        assertTrue(!this.film1.equals(null));
+        assertNotEquals(this.film1, null);
         assertEquals(this.film1, this.film1);
         assertEquals(this.film1, new Film("Moi, l'incroyable", "Lina Zerraf"));
-        assertTrue(!this.film1.equals(this.film2));
+        assertNotEquals(this.film1, this.film2);
     }
 
     @Test
     public void testHashCode() {
         Film film = new Film("Moi, l'incroyable", "Lina Zerraf");
-        assertTrue(this.film1.hashCode() == film.hashCode());
+        assertEquals(this.film1.hashCode(), film.hashCode());
     }
-
-/**
- public static Test suite() {
- TestSuite suite= new TestSuite();
- suite.addTest(new MoneyTest("testEquals"));
- suite.addTest(new MoneyTest("testSimpleAdd"));
- return suite;
- } **/
 
 }
 

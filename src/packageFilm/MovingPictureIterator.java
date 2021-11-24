@@ -25,10 +25,10 @@ public class MovingPictureIterator implements Iterator<MovingPicture> {
         //else return null;
     }
 
-    @Override
+    /*@Override
     public void reset() {
         this.currentIndex = 0;
-    }
+    }*/
 
     @Override
     public MovingPicture currentItem() {

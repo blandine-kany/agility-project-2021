@@ -19,12 +19,12 @@ public class Film extends MovingPicture {
 
     @Override
     public String information() {
-        return "Film: " + this.title + " by " + this.director;
+        return "Film: " + this.title + " by director " + this.director;
     }
 
     @Override
     public String hirePeople() {
-        return "People to hire: Actors, Set Designer, Cameramen, Director, Screen writer, Producer";
+        return "People to hire: Actors, Set Designer, Cameramen, Screen writer, Producer";
     }
 
     @Override

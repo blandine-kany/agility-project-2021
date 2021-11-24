@@ -14,12 +14,12 @@ public class AdvertisingFilm extends MovingPicture {
 
     @Override
     public String information() {
-        return "Advertising Film: " + this.title + " by " + this.director + " for the " + this.phone.getName();
+        return "Advertising Film: " + this.title + " by director " + this.director + " for " + this.phone.getName();
     }
 
     @Override
     public String hirePeople() {
-        return "People to hire: Cameramen, Director, Screen writer, Producer";
+        return "People to hire: Cameramen, Screen writer, Producer";
 
     }
 

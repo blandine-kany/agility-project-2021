@@ -1,7 +1,7 @@
 package packageFilm;
 
 public interface Iterator<T> {
-    void reset();   // reset to the first element
+    //void reset();   // reset to the first element
 
     T next();   // To get the next element
 

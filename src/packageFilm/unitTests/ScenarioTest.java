@@ -1,12 +1,13 @@
-package packageFilm;
+package packageFilm.unitTests;
 
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import packageFilm.Film;
+import packageFilm.Scenario;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Classe-test ScenarioTest.
@@ -97,7 +98,7 @@ public class ScenarioTest {
 
     @Test
     public void testGetListFilm() {
-        assertEquals(true, this.scenario1.getListOfFilms().isEmpty());
+        assertTrue(this.scenario1.getListOfFilms().isEmpty());
     }
 
     @Test
@@ -113,29 +114,29 @@ public class ScenarioTest {
 
         //modification
         assertEquals(1, this.scenario1.getListOfFilms().size());
-        assertEquals(null, f.getScenario());
+        assertNull(f.getScenario());
     }
 
     @Test
     public void testRemoveFilm() {
         scenario1.removeFilm(film1);
 
-        assertEquals(true, !scenario1.getListOfFilms().contains(film1));
-        assertEquals(null, film1.getScenario());
+        assertFalse(scenario1.getListOfFilms().contains(film1));
+        assertNull(film1.getScenario());
     }
 
     @Test
     public void testEquals() {
-        assertTrue(!this.scenario1.equals(null));
+        assertNotEquals(null, this.scenario1);
         assertEquals(this.scenario1, this.scenario1);
         assertEquals(this.scenario1, new Scenario("The Road to Dune"));
-        assertTrue(!this.scenario1.equals(this.scenario2));
+        assertNotEquals(this.scenario2, this.scenario1);
     }
 
     @Test
     public void testHashCode() {
         Scenario scenario = new Scenario("The Road to Dune");
-        assertTrue(this.scenario1.hashCode() == scenario.hashCode());
+        assertEquals(this.scenario1.hashCode(), scenario.hashCode());
     }
 }
 
