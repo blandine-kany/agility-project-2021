@@ -71,4 +71,38 @@ public class AdvertisingFilmTest {
         AdvertisingFilm advertisingFilm = new AdvertisingFilm("The Awesomest iPhone", "Steven Jobs", iPhoneX);
         assertEquals(this.adForIphone.hashCode(), advertisingFilm.hashCode());
     }
+
+    @Test
+    public void testGetPhone() {
+        assertEquals(this.adForSamsung.getPhone(), this.samsungGalaxyS);
+    }
+
+    @Test
+    public void testSetPhone() {
+        Phone oldSamsung = new Phone();
+        this.adForSamsung.setPhone(oldSamsung);
+        assertEquals(oldSamsung, this.adForSamsung.getPhone());
+    }
+
+    @Test
+    public void testGetTitle() {
+        assertEquals("The Awesomest iPhone", this.adForIphone.getTitle());
+    }
+
+    @Test
+    public void testSetTitle() {
+        this.adForIphone.setTitle("The Worst iPhone");
+        assertEquals("The Worst iPhone", this.adForIphone.getTitle());
+    }
+
+    @Test
+    public void testGetDirector() {
+        assertEquals("Raphael Abizmil", this.adForSamsung.getDirector());
+    }
+
+    @Test
+    public void testSetDirector() {
+        this.adForSamsung.setDirector("Steven Jobs");
+        assertEquals("Steven Jobs", this.adForSamsung.getDirector());
+    }
 }

@@ -68,17 +68,6 @@ public class Scenario {
         boolean newFilm = true;
         //vérification que le film n'existe pas dans la liste
         MovingPictureIterator iterator = new MovingPictureIterator(movingPictureList);
-
-        /*for (MovingPicture film : this.movingPictureList) {
-            if (film.equals(f)) {
-                newFilm = false;
-            }
-        }
-        //ajout du nouveau film
-        if (newFilm) {
-            this.movingPictureList.add(f);
-            f.setScenario(this);
-        }*/
         while (iterator.hasNext()) {
             if (iterator.currentItem().equals(f)) {
                 newFilm = false;
