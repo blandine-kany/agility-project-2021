@@ -4,8 +4,10 @@ package packageFilm.unitTests;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import packageFilm.AdvertisingFilm;
 import packageFilm.Film;
 import packageFilm.Scenario;
+import packagePhone.Phone;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +37,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ScenarioTest {
     private Film film1;
+    private AdvertisingFilm advertisingFilm;
     private Scenario scenario1;
     private Scenario scenario2;
 
@@ -61,6 +64,7 @@ public class ScenarioTest {
     public void setUp() // throws java.lang.Exception
     {
         this.film1 = new Film("Dune", "Denis Villeneuve");
+        this.advertisingFilm = new AdvertisingFilm("An ad for a phone", "Denis Villeneuve", new Phone());
         this.scenario1 = new Scenario("The Road to Dune");
         this.scenario2 = new Scenario("DragonBall Z");
 
@@ -82,7 +86,8 @@ public class ScenarioTest {
 
     @Test
     public void testScenarioInfo() {
-        assertEquals("The Road to Dune", this.scenario1.scenarioInfo());
+        this.scenario1.addFilm(film1);
+        assertEquals("The Road to Dune" + "\n" + "Film: Dune by director Denis Villeneuve", this.scenario1.scenarioInfo());
     }
 
     @Test
@@ -115,6 +120,11 @@ public class ScenarioTest {
         //modification
         assertEquals(1, this.scenario1.getListOfFilms().size());
         assertNull(f.getScenario());
+
+        //adding an advertising film
+        this.scenario1.addFilm(advertisingFilm);
+        assertEquals(2, this.scenario1.getListOfFilms().size());
+        assertEquals(this.scenario1, advertisingFilm.getScenario());
     }
 
     @Test
@@ -131,6 +141,7 @@ public class ScenarioTest {
         assertEquals(this.scenario1, this.scenario1);
         assertEquals(this.scenario1, new Scenario("The Road to Dune"));
         assertNotEquals(this.scenario2, this.scenario1);
+        assertFalse(this.scenario1.equals(film1));
     }
 
     @Test

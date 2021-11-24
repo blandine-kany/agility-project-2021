@@ -36,7 +36,7 @@ public class Scenario {
         StringBuilder sb = new StringBuilder();
 
         for (MovingPicture movingPicture : this.movingPictureList) {
-            infoOfFilms = sb.append(infoOfFilms).append(" ").append(movingPicture.information()).toString();
+            infoOfFilms = sb.append(infoOfFilms).append("\n").append(movingPicture.information()).toString();
         }
 
         return this.originalTitle + infoOfFilms;
@@ -64,7 +64,7 @@ public class Scenario {
      *
      * @param f - objet de type MovingPicture
      */
-    public void addFilm(Film f) {
+    public void addFilm(MovingPicture f) {
         boolean newFilm = true;
         //vérification que le film n'existe pas dans la liste
         MovingPictureIterator iterator = new MovingPictureIterator(movingPictureList);
